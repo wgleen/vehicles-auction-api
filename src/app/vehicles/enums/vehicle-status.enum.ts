@@ -1,0 +1,7 @@
+export enum VehicleStatus {
+  PENDING = 'PENDING',
+  REGISTERED = 'REGISTERED',
+  EXPIRED = 'EXPIRED',
+  COMPLETED = 'COMPLETED',
+  SOLD = 'SOLD'
+}

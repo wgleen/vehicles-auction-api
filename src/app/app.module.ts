@@ -15,6 +15,7 @@ import siteConfig from '../config/site.config';
 import { HealthModule } from './health/health.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { VehiclesModule } from './vehicles/vehicles.module';
 import { AppController } from './app.controller';
 
 @Module({
@@ -35,7 +36,8 @@ import { AppController } from './app.controller';
     }),
     HealthModule,
     AuthModule,
-    UsersModule
+    UsersModule,
+    VehiclesModule
   ],
   controllers: [AppController]
 })

@@ -3,9 +3,11 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  Unique
+  Unique,
+  OneToMany
 } from 'typeorm';
 import { UserRoles } from './enums/user-roles.enum';
+import { Vehicle } from '../vehicles/vehicle.entity';
 
 @Entity()
 @Unique(['email'])
@@ -27,6 +29,13 @@ export class User extends BaseEntity {
 
   @Column({ default: UserRoles.USER })
   role: UserRoles;
+
+  @OneToMany(
+    () => Vehicle,
+    vehicle => vehicle.user,
+    { eager: false }
+  )
+  vehicles: Vehicle[];
 
   isAdmin(): boolean {
     return this.role === UserRoles.ADMIN
