@@ -11,15 +11,19 @@ import {
 import { TypeOrmModule } from '@nestjs/typeorm';
 import jwtConfig from 'src/config/jwt.config';
 import databaseConfig from '../config/database.config';
+import siteConfig from '../config/site.config';
+import { HealthModule } from './health/health.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       load: [
         databaseConfig,
-        jwtConfig
+        jwtConfig,
+        siteConfig
       ]
     }),
     TypeOrmModule.forRootAsync({
@@ -29,9 +33,11 @@ import { AuthModule } from './auth/auth.module';
       ),
       inject: [ConfigService]
     }),
+    HealthModule,
     AuthModule,
     UsersModule
   ],
+  controllers: [AppController]
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer): void {
