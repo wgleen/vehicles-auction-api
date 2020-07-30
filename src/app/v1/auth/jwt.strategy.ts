@@ -7,8 +7,8 @@ import { PassportStrategy } from '@nestjs/passport';
 import {
   Injectable
 } from '@nestjs/common';
-import { User } from '../users/user.entity'
-import { UsersFindByEmailServiceV1 } from '../users/v1/users-find-by-email.service'
+import { User } from '../../../entities/user.entity'
+import { UsersFindByEmailServiceV1 } from '../users/users-find-by-email.service'
 import { JwtPayload } from './interfaces/jwt-payload.interface';
 
 @Injectable()

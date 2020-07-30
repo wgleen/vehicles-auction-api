@@ -1,16 +1,16 @@
 import * as bcrypt from 'bcrypt';
 import { UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UsersFindByEmailServiceV1 } from '../../users/v1/users-find-by-email.service';
-import { User } from '../../users/user.entity';
+import { UsersFindByEmailServiceV1 } from '../users/users-find-by-email.service';
+import { User } from '../../../entities/user.entity';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
-import { JwtPayload } from '../interfaces/jwt-payload.interface';
-import { JwtResponse } from '../interfaces/jwt-response.interface';
+import { JwtPayload } from './interfaces/jwt-payload.interface';
+import { JwtResponse } from './interfaces/jwt-response.interface';
 
 export class AuthServiceV1 {
   constructor(
-    public usersFindByEmailServiceV1: UsersFindByEmailServiceV1,
-    public jwtSertive: JwtService
+    protected usersFindByEmailServiceV1: UsersFindByEmailServiceV1,
+    protected jwtSertive: JwtService
   ) {
   }
 

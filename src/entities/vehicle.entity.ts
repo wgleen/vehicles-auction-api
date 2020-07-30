@@ -5,7 +5,7 @@ import {
   Column,
   ManyToOne
 } from 'typeorm';
-import { User } from '../users/user.entity';
+import { User } from './user.entity';
 import { VehicleStatus } from './enums/vehicle-status.enum'
 
 @Entity()

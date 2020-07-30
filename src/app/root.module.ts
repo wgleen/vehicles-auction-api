@@ -12,11 +12,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import jwtConfig from 'src/config/jwt.config';
 import databaseConfig from '../config/database.config';
 import siteConfig from '../config/site.config';
-import { HealthModule } from './health/health.module';
-import { UsersModule } from './users/users.module';
-import { AuthModule } from './auth/auth.module';
-import { VehiclesModule } from './vehicles/vehicles.module';
-import { AppController } from './app.controller';
+import { HealthModule } from './core/health/health.module';
+import { RootController } from './root.controller';
+import { V1Module } from './v1/v1.module';
 
 @Module({
   imports: [
@@ -35,14 +33,12 @@ import { AppController } from './app.controller';
       inject: [ConfigService]
     }),
     HealthModule,
-    AuthModule,
-    UsersModule,
-    VehiclesModule
+    V1Module
   ],
-  controllers: [AppController]
+  controllers: [RootController]
 })
-export class AppModule {
-  configure(consumer: MiddlewareConsumer): void {
+export class RootModule {
+  protected configure(consumer: MiddlewareConsumer): void {
     consumer.apply(compression());
     consumer.apply(helmet());
   }

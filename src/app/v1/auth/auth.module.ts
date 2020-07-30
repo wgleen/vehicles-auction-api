@@ -6,11 +6,11 @@ import {
   ConfigModule
 } from '@nestjs/config';
 import { UsersModule } from '../users/users.module';
-import { AuthServiceV1 } from './v1/auth.service';
-import { AuthSignupServiceV1 } from './v1/auth-signup.service';
-import { AuthSigninServiceV1 } from './v1/auth-signin.service';
+import { AuthServiceV1 } from './auth.service';
+import { AuthSignupServiceV1 } from './auth-signup.service';
+import { AuthSigninServiceV1 } from './auth-signin.service';
 import { JwtStrategy } from './jwt.strategy';
-import { AuthControllerV1 } from './v1/auth.controller';
+import { AuthControllerV1 } from './auth.controller';
 
 @Module({
   imports: [

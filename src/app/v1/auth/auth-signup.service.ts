@@ -1,17 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UsersFindByEmailServiceV1 } from '../../users/v1/users-find-by-email.service';
+import { UsersFindByEmailServiceV1 } from '../users/users-find-by-email.service';
 import { AuthServiceV1 } from './auth.service';
-import { UsersCreateServiceV1 } from '../../users/v1/users-create.service';
-import { CreateUserDto } from '../../users/v1/dto/create-user.dto';
-import { JwtPayload } from '../interfaces/jwt-payload.interface';
-import { JwtResponse } from '../interfaces/jwt-response.interface';
+import { UsersCreateServiceV1 } from '../users/users-create.service';
+import { CreateUserDto } from '../users/dto/create-user.dto';
+import { JwtPayload } from './interfaces/jwt-payload.interface';
+import { JwtResponse } from './interfaces/jwt-response.interface';
 
 @Injectable()
 export class AuthSignupServiceV1 extends AuthServiceV1 {
   constructor(
-    public usersFindByEmailServiceV1: UsersFindByEmailServiceV1,
-    public jwtSertive: JwtService,
+    protected usersFindByEmailServiceV1: UsersFindByEmailServiceV1,
+    protected jwtSertive: JwtService,
     private usersCreateService: UsersCreateServiceV1,
   ) {
     super(

@@ -11,12 +11,12 @@ import {
 } from '@nestjs/swagger';
 import { AuthSigninServiceV1 } from './auth-signin.service';
 import { AuthSignupServiceV1 } from './auth-signup.service';
-import { CreateUserDto } from '../../users/v1/dto/create-user.dto';
+import { CreateUserDto } from '../users/dto/create-user.dto';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
-import { JwtResponse } from '../interfaces/jwt-response.interface';
+import { JwtResponse } from './interfaces/jwt-response.interface';
 
 @ApiTags('Auth v1')
-@Controller('v1/auth')
+@Controller('auth')
 export class AuthControllerV1 {
   constructor(
     private authSignupServiceV1: AuthSignupServiceV1,

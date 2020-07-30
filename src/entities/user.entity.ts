@@ -7,7 +7,7 @@ import {
   OneToMany
 } from 'typeorm';
 import { UserRoles } from './enums/user-roles.enum';
-import { Vehicle } from '../vehicles/vehicle.entity';
+import { Vehicle } from './vehicle.entity';
 
 @Entity()
 @Unique(['email'])

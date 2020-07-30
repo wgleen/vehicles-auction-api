@@ -5,7 +5,7 @@ import {
 } from "@nestjs/common";
 
 @Controller()
-export class AppController {
+export class RootController {
   constructor(private configService: ConfigService) {
   }
 

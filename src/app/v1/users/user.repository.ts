@@ -1,6 +1,6 @@
 import * as bcrypt from 'bcrypt';
 import { Repository, EntityRepository } from 'typeorm';
-import { User } from '../user.entity';
+import { User } from '../../../entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 import { FindUserByEmailDto } from './dto/find-user-by-email.dto';
 

@@ -6,12 +6,17 @@ import {
   HealthCheckResult,
   TypeOrmHealthIndicator
 } from "@nestjs/terminus";
+import {
+  ApiOperation,
+  ApiTags
+} from '@nestjs/swagger';
 import { ConfigService } from "@nestjs/config";
 import {
   Controller,
   Get
 } from "@nestjs/common";
 
+@ApiTags('Health')
 @Controller('health')
 export class HealthController {
   constructor(
@@ -23,6 +28,7 @@ export class HealthController {
   }
 
   @Get('dns')
+  @ApiOperation({ summary: 'Check DNS health' })
   @HealthCheck()
   dnsCheck(): Promise<HealthCheckResult> {
     const {
@@ -36,6 +42,7 @@ export class HealthController {
   }
 
   @Get('database')
+  @ApiOperation({ summary: 'Check Database health' })
   @HealthCheck()
   databaseCheck(): Promise<HealthCheckResult> {
     return this.health.check([

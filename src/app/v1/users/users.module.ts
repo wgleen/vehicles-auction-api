@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserRepositoryV1 } from './v1/user.repository';
-import { UsersCreateServiceV1 } from './v1/users-create.service';
-import { UsersFindByEmailServiceV1 } from './v1/users-find-by-email.service';
+import { UserRepositoryV1 } from './user.repository';
+import { UsersCreateServiceV1 } from './users-create.service';
+import { UsersFindByEmailServiceV1 } from './users-find-by-email.service';
 
 @Module({
   imports: [

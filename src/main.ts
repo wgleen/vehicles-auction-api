@@ -1,12 +1,16 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app/app.module';
-import { buildDocumentation } from './app/app.swagger'
+import * as http from 'http';
+import * as express from 'express';
+import { rootBuild } from './app/root.build';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const server = express();
 
-  buildDocumentation(app);
+  const appRoot = await rootBuild(server);
 
-  await app.listen(3000);
+  await appRoot.init();
+
+  http
+    .createServer(server)
+    .listen(3000);
 }
 bootstrap();
