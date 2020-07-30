@@ -16,7 +16,7 @@ import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { JwtResponse } from './interfaces/jwt-response.interface';
 
 @ApiTags('Auth v1')
-@Controller('auth')
+@Controller('v1/auth')
 export class AuthControllerV1 {
   constructor(
     private authSignupServiceV1: AuthSignupServiceV1,
