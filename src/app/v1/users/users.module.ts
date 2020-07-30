@@ -19,5 +19,5 @@ import { UsersFindByEmailServiceV1 } from './users-find-by-email.service';
     TypeOrmModule
   ]
 })
-export class UsersModule {
+export class UsersModuleV1 {
 }

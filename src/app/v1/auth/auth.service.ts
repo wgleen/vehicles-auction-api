@@ -1,17 +1,19 @@
 import * as bcrypt from 'bcrypt';
 import { UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { BaseService } from 'src/app/core/base/base.service';
 import { UsersFindByEmailServiceV1 } from '../users/users-find-by-email.service';
 import { User } from '../../../entities/user.entity';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { JwtPayload } from './interfaces/jwt-payload.interface';
 import { JwtResponse } from './interfaces/jwt-response.interface';
 
-export class AuthServiceV1 {
+export class AuthServiceV1 extends BaseService {
   constructor(
     protected usersFindByEmailServiceV1: UsersFindByEmailServiceV1,
     protected jwtSertive: JwtService
   ) {
+    super()
   }
 
   async validateUserCredentials(authCredentials: AuthCredentialsDto): Promise<User> {
